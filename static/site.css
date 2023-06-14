@@ -1,0 +1,54 @@
+.divider {
+    border-top: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:bisque;
+    padding: 5px;
+}
+.divider {
+    /*border-top: 1px solid #FF0000;  Replace #FF0000 with your desired color */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: bisque;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.centered-h1 {
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    height: 50%;
+    
+}
+.middle-div {
+    vertical-align: middle;
+}
+.h1-font {
+    
+    padding-bottom: 50px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

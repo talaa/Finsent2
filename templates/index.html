@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    <title>{{ title }}</title>
+    
+</head>
+<body>
+    {{navbar_html | safe}}
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="text-center">MarketsMoods: Stay Ahead of the Curve with Financial News Analysis</h1>
+                    <p class="text-center">Our financial news analysis provides you with the latest news and insights from the financial markets. We cover everything from economic data to company earnings reports, so you can stay ahead of the curve and make informed investment decisions</p>
+                    <div class="text-center">
+                        <button class="btn btn-primary" onclick="scrollToSection('analysis-section')">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="lottie-image">
+                        <!-- Replace with your Lottie animation code or embed -->
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_mp6wwkvx.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider 1 -->
+    <div class="divider">
+        <hr>
+    </div>
+
+    <!-- Feature Section -->
+    <section class="feature-section" id="feature-section">
+        <div class="container">
+            <h1 class="h1-font">Check our Features</h1>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        
+                        <div class="card-header">
+                            <h3 class="card-title">News Analysis</h3>
+                        </div>
+                        <img src="{{ url_for('static', filename='4.jfif') }}">
+                        
+                        <div class="card-body">
+                            <p class="card-text">We gather financial news from a variety of sources and analyze it to identify trends and patterns that could impact stock prices</p>
+                            <button class="btn btn-primary" onclick="scrollToSection('analysis-section')">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">AI-Powered Prediction</h3>
+                        </div>
+                        <img src="{{ url_for('static', filename='3.jfif') }}">
+                        <div class="card-body">
+                            <p class="card-text">We use artificial intelligence to extrapolate the news and check the effect of this news on the stock movement.</p>
+                            <button class="btn btn-primary" onclick="scrollToSection('ai-section')">Learn More</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Newsletter</h3>
+                        </div>
+                        <img src="{{ url_for('static', filename='5.jfif') }}">
+                        <div class="card-body">
+                            <p class="card-text">Join our Newsletter to receive everyday news about your prefered Stocks and their Corresponding Analysis.Join the waitlist !</p>
+                            <button class="btn btn-primary">Comming Soon</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider 2 -->
+    <div class="divider">
+        <hr>
+    </div>
+    <section class="feature-section">
+        <iframe
+            src="https://talaa-finsent-streamlit-app-68nmqb.streamlit.app/?embed=true"
+            height="450"
+            style="width:100%;border:none;"
+            ></iframe>
+
+    </section>
+    <!-- Divider 2 -->
+    <div class="divider">
+        <hr>
+    </div>
+
+    <!-- Form Section -->
+    <section class="form-section full-height" id="analysis-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 >News Analysis</h1>
+                    <form action="/ai-financialnews-sentiment-analysis" method="POST">
+                        
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Stock Name</label>
+                            <input type="text" class="form-control" id="stock_name" name="stock_name" placeholder="Enter the Stock">
+                        </div>
+                        <div class="mb-3">
+                            <label for="slider" class="form-label">No of Days</label>
+                            <input type="range" class="form-range" min="1" max="10" value="4" id="slider" name="days_input">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider 3 -->
+    <div class="divider">
+        <hr>
+    </div>
+    <!--AI Power -->
+    <section class="form-section full-height" id="ai-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 >AI Prediction</h1>
+                    <div class="alert alert-info" role="alert">                 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                          </svg>
+                         Still under Testing
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">URL of the news</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter the URL of the news">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Divider 3 -->
+    <div class="divider">
+        <hr>
+    </div>
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>if you interested to receive every morning Financial news analysis about your prefered Stocks <br> Please Subscribe !</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Divider 3 -->
+    <div class="divider">
+        <hr>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 My Webpage. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+    
+</body>
+</html>
